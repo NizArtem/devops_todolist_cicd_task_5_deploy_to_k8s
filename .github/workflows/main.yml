@@ -11,8 +11,6 @@ on:
 env:
   PythonVersion: 3.8
   DockerImageName: todoapp
-  DockerUsername: nizartem
-  EnvironmentName: Development
 
 jobs:
   python-ci:
@@ -124,7 +122,7 @@ jobs:
    deploy-helm-dev:
       name: Deploy Helm
       uses: ./.github/workflows/deployment-workflow.yml
-      needs: [ helm-ci, build-image ]
+      needs: [ helm-ci, docker-ci ]
       secrets: inherit
       with:
         environment: dev

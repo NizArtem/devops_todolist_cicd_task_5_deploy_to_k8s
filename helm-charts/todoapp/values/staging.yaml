@@ -1,7 +1,7 @@
 todoapp:
   namespace: todoapp
   image:
-    repository: ikulyk404/todoapp
+    repository: nizartem/todoapp
 
   resources:
     requests:
@@ -28,9 +28,9 @@ todoapp:
 
   todoapp:
    configs:
-     APP_ENV: "User-Testing"
+     APP_ENV: ${{ secrets.DB_USER }}
    secrets:
-     password: MyStrongerPassword
+     password: ${{ secrets.DB_PASSWORD }}
 
 
    resources:
